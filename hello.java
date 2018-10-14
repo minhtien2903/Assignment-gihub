@@ -1,15 +1,23 @@
 import java.util.Scanner;
 
-public class Main {
+public class hello {
   public static void main(String[] args) 
   {
     System.out.println("Hello World This is TDTU");
-    Scanner input = new Scanner (System.in);
-    System.out.print("Input your first name: ");
-    String fname = input.next();
-    System.out.print("Input your last name: ");
-    String lname = input.next();
-    System.out.println();
-    System.out.println("Hello I'm\n"+fname+" "+lname);
+    try {
+    File f = new File("data.txt");
+    FileReader fr = new FileReader(f);
+    BufferedReader br = new BufferedReader(fr);
+    String line;
+    while ((line = br.readLine()) != null){
+      System.out.println(line);
+    }
+    fr.close();
+     br.close(); 
+    } catch (Exception ex) {
+        System.out.println("Loi doc file: "+ex);
+    }
+    
+
   }
 }
